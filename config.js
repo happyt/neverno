@@ -5,7 +5,7 @@
  */
 module.exports = {
   port: 3000,
-  polltime: 12,
+  polltime: 4,
   timecount: 60,
   feeds :  [
         { title: "neverno", 

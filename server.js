@@ -73,10 +73,20 @@ function myTimer() {
                     date: new Date(),
                     tweets: []
                 }
-                console.log("?", feed.entries.length);
-                for (var i=0; i<feed.entries.length; i++) {
-                    console.log(feed.entries[i].nickname);
+           //     console.log("?", Object.keys(feed.entries).length);
+                count = Object.keys(feed.entries).length;
+                for(var key in feed.entries) {
+                    var tweet = {};
+                    tweet.full_name = feed.entries[key].full_name;
+                    tweet.nickname = feed.entries[key].nickname;
+                    tweet.message = feed.entries[key].message;
+                    tweet.profile_image = feed.entries[key].profile_image;
+                    nevernodata.tweets.push(tweet);
                 }
+                fs.writeFile('./public/tweets.json', JSON.stringify(nevernodata), function (err) {
+                    if (err) return console.log(err);
+                });  
+
               // write to file
                 fs.writeFile('./public/neverno.json', body, function (err) {
                     if (err) return console.log(err);
