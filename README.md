@@ -12,4 +12,5 @@ A simple server to strip some data from the neverno feed
 - save items to JSON file
 - serves the JSON files through express
 - uses CORS enable
+- presents a simplified set of data for the lower third client
 
